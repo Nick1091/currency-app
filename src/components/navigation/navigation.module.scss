@@ -1,0 +1,12 @@
+@import "@/styles/styles"; 
+
+.link{
+  transition: all 0.1s;
+  &:hover{
+    text-decoration: underline;
+    color:$hover;
+  }
+}
+.active{
+  color:$active;
+}

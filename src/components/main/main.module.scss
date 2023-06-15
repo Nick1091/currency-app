@@ -1,0 +1,13 @@
+@import "@/styles/styles"; 
+
+.container{
+  min-height: calc(100vh - 160px);
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  @include container(1240px)
+};  
+@media (max-width: 1300px) {
+  .container{
+    @include container(1024px);
+  }
+}

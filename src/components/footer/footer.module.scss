@@ -1,0 +1,18 @@
+@import "@/styles/styles" ;
+
+.footer{
+  height: 80px;
+  background-color: $bg;
+  color: $txtWhite;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  .container{
+    @include container(1240px)
+  }
+}
+@media (max-width: 1300px) {
+  .container{
+    @include container(1024px);
+  }
+}

@@ -1,0 +1,11 @@
+$bg: #1c1933;
+$txtWhite: #fff;
+$txtBlack: #000000;
+$active: #5642f3;
+$hover: #a6a6a6;
+@mixin container($width) {
+  max-width: $width;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin: 0 auto;
+}
