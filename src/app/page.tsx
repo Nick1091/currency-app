@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "The Exchange Rates page of currencies app"
 }
 
-export default function Exchanges() {
+export default async function Exchanges() {
     return (
       <Form />
     )

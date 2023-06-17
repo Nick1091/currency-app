@@ -3,7 +3,7 @@
 .main{
   background-color: $bg;
   .container{
-    min-height: calc(100vh - 200px);
+    min-height: $mainHeight;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
     color: $txtWhite;

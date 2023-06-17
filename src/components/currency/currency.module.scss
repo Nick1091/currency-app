@@ -1,0 +1,62 @@
+@import "@/styles/styles" ;
+
+.selectWrapper {
+  max-width: 100%;
+  .select{
+    @include font1;
+    width: 100%;
+    background: $secBg;
+    margin-top: 20px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      width: 0px;
+      height: 0px;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 6px solid $thumbColorHover;
+      pointer-events: none;
+    }
+    .options {
+      width: 100%;
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      max-height: 200px;
+      overflow-y: auto;
+      background-color: $secBg;
+      border-radius: 4px;
+      box-shadow: $windowShadow;
+      z-index: 1;
+      padding: 0;
+      margin-top: 4px;
+      font-size: 16px;
+      @include scroll;
+      li {
+        padding: 8px 16px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        border-bottom: 1px solid $lineColor;
+      }
+    }
+  }
+
+  .open {
+    &::after {
+      transform: translateY(-50%) rotate(180deg);
+    }
+    .options {
+      display: block;
+    }
+  }
+}

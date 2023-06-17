@@ -19,9 +19,9 @@ type CurrenciesList = {
 
 type CurrencyWithKey = {[key: string]: CurrenciesList}
 type InitState = {
-  currency: string,
+  currentCurrency: string,
   isLoaded: boolean,
-  currencies: CurrencyWithKey[]
+  currencies: CurrenciesList[]
   error: string,
   dateId: string
 };

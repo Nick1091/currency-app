@@ -9,9 +9,9 @@ export const SelectLabel = ({name}: {name: string}) => {
   return (
     <div className={styles.wrapper}>
       <h4>Select {name} currency</h4>
-      <select size={5} id={name} name={name}>
+      <select size={5} id={name} name={name} defaultValue='R01010'>
           {currencies.map((currency: CurrenciesList) => (
-            <option key={currency.ID} value={currency.ID} selected={currency.ID === 'R01010'}>
+            <option key={currency.ID} value={currency.ID}>
               {currency.Name}
             </option>
           ))}

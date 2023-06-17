@@ -12,16 +12,8 @@ export const fetchCurrencies = createAsyncThunk('currencies/getAllCurrencies', a
     return thunkAPI.rejectWithValue(e.message);
   }
 });
-
-type InitState = {
-  currency: string,
-  isLoaded: boolean,
-  currencies: CurrenciesList[]
-  error: string,
-  dateId: string
-};
 const initialState: InitState = {
-  currency: 'BY',
+  currentCurrency: 'BYN',
   isLoaded: false,
   currencies: [],
   error: '',
@@ -47,17 +39,21 @@ export const currencySlice = createSlice({
   },
   reducers: {
     setCurrency: (state, action: PayloadAction<string>) => {
-      state.currency = action.payload;
+      state.currentCurrency = action.payload;
     },
     setDateId: (state, action: PayloadAction<string>) => {
       state.dateId= action.payload;
+    },
+    setCurrencies: (state, action: PayloadAction<CurrenciesList[]>) => {
+      state.currencies= action.payload;
     },
   },
 });
 
 export const {
   setCurrency, 
-  setDateId
+  setDateId,
+  setCurrencies
 } = currencySlice.actions;
 
 export default currencySlice.reducer;
