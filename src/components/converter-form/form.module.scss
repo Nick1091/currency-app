@@ -1,0 +1,21 @@
+@import "@/styles/styles" ;
+
+.form{
+  margin-top: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+  .select{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10vw;
+  }
+  .buttons{
+    display: flex;
+    gap: 30px;
+  }
+}

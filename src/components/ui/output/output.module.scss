@@ -1,0 +1,23 @@
+@import "@/styles/styles";
+
+.outputWrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  h4{
+    text-align: center;
+  }
+  .outputInner{
+    min-width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    color: $txtGrey;
+    box-shadow: $windowShadow;
+    background: $secBg;
+    padding: 0px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

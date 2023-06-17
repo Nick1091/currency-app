@@ -1,0 +1,56 @@
+@import "@/styles/styles";
+
+.wrapper {
+  position: relative;
+  display: inline-block;
+  h4{
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  :focus {
+    outline: none;
+  }
+  select {
+    appearance: none;
+    padding: 8px 16px;
+    border: 2px solid $secBg;
+    border-radius: 4px;
+    width: 100%;
+    transition: color 0.1s;
+    background: $secBg;
+    box-shadow: $windowShadow;
+    width: 250px;
+    cursor: pointer;
+    option{
+      width: 210px;
+      color: $txtGrey;
+      font-size: 18px;
+      letter-spacing: 0.2px;
+      font-weight: 200;
+      font-family: "Inter", sans-serif;
+      border-bottom: 1px solid $lineColor;
+      padding: 5px 0px;
+      &:hover {
+        background-color: $optionHover;
+      }
+      &:checked {
+        color: #fff;
+        background-color: $selected;
+      }
+    }
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+    &::-webkit-scrollbar-button {
+      display: none;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: $thumbColor; 
+      border-radius: 5px; 
+    }
+    &::-webkit-scrollbar-track {
+      background-color: $bgScroll; 
+
+    }
+  }
+}

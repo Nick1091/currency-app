@@ -7,7 +7,9 @@ export const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <Navigation navLinks={navItems}/>
+        <nav>
+          <Navigation navLinks={navItems}/>
+        </nav>
       </div>
     </header>
   )

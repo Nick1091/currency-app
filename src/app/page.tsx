@@ -1,12 +1,13 @@
-import Image from 'next/image'
-import styles from './home.module.scss'
 import { Metadata } from "next";
+import { Form } from '@/components/converter-form/form';
 
 export const metadata: Metadata = {
-  title: 'Monitoring | Currencies App',
-  description: "The Monitoring page of currencies app"
+  title: 'Exchange Rates | Currencies App',
+  description: "The Exchange Rates page of currencies app"
 }
 
-export default function Monitoring() {
-    return <div>Monitoring page</div>
+export default function Exchanges() {
+    return (
+      <Form />
+    )
 }

@@ -1,11 +1,18 @@
 @import "@/styles/styles"; 
 
-.container{
-  min-height: calc(100vh - 160px);
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-  @include container(1240px)
-};  
+.main{
+  background-color: $bg;
+  .container{
+    min-height: calc(100vh - 200px);
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    color: $txtWhite;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    @include container(1240px)
+  }  
+}
 @media (max-width: 1300px) {
   .container{
     @include container(1024px);

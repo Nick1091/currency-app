@@ -1,16 +1,26 @@
 @import "@/styles/styles";
 
 .header{
-  height: 80px;
+  height: 120px;
   background-color: $bg;
   color: $txtWhite;
   display: flex;
   align-items: center;
   width: 100%;
+  z-index: 1;
+  box-shadow: $headerShadow;
   .container{
-    display: flex;
-    gap: 20px;
-    @include container(1240px)
+    width: 100%;
+    & > nav {
+      display: flex;
+      justify-content: flex-end;
+      font-size: $pageLinkSize;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      gap: 6em;
+    }
+     @include container(1240px)
+
   }
 }
 @media (max-width: 1300px) {

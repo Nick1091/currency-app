@@ -1,11 +1,35 @@
 $bg: #1c1933;
+$secBg: #201c43;
 $txtWhite: #fff;
+$txtGrey: #acacac;
+$txtTaranspGrey:#6565655e;
+
+$borderColor: #9b9b9b;
+$scrollColor: #e4e4e4;
+$thumbColor: #c4c4c4;
+$selectBorderOpen: #aaa;
+
 $txtBlack: #000000;
-$active: #5642f3;
+$active: #4032a6;
 $hover: #a6a6a6;
+$pageLinkSize: 24px;
+$bgScroll:#1c1933;
+$optionHover: #1c1933d5;
+$selected: #1e90ff;
+$selectedTr: #1e8fff5b;
+$lineColor: #6565655e;
+
+@mixin buttonFont{
+  font-size: 20px;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
 @mixin container($width) {
   max-width: $width;
   padding-left: 2rem;
   padding-right: 2rem;
   margin: 0 auto;
 }
+$headerShadow: 0px 7px 9px 0px rgba(0, 0, 0, 0.08);
+$windowShadow: 0px 0px 20px 16px rgba(0, 0, 0, 0.08);

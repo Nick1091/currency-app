@@ -2,10 +2,8 @@ import { Metadata } from 'next'
 import { Footer } from '@/components/footer/footer'
 import { Header } from '@/components/header/header'
 import { Main } from '@/components/main/main'
-import { Inter } from 'next/font/google'
+import { ReduxProvider } from '@/store/provider'
 import '@/styles/globals.scss'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Currencies App',
@@ -19,11 +17,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
         <div className='wrapper'>
           <Header/>
           <Main>
-            {children}
+            <ReduxProvider>
+              {children}
+            </ReduxProvider>
           </Main>
           <Footer/>
         </div>
