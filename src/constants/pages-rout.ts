@@ -1,6 +1,6 @@
 export const navItems = [
-  { label: 'Exchange Rates', href: '/'},
-  { label: 'Monitoring', href: '/monitoring'},
+  { label: 'Monitoring', href: '/'},
+  { label: 'Exchange Rates', href: '/exchanges'},
 ]
 export const enNames: {[key: string]: string} = {
   R01010:"Australian Dollar",
@@ -46,5 +46,4 @@ export const enNames: {[key: string]: string} = {
   R01810:"S.African Rand",
   R01815:"South Korean Won",
   R01820:"Japanese Yen",
-
 }

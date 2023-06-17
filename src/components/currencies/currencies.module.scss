@@ -3,6 +3,7 @@
 .CurrenciesWrapper{
   max-height: calc($mainHeight - 50px);
   overflow: auto;
+  max-width: 500px;
   @include font1;
   table {
     border-collapse: collapse;

@@ -1,13 +1,15 @@
 'use client'
 
-import styles from './currencies.module.scss'
 import { useCallback, useEffect, useRef, useState } from "react"
 import { useAppDispatch, useAppSelector } from "@/hooks/redux"
 import { getDateId } from "@/helper/helper"
 import { fetchCurrencies, setDateId } from "@/store/reducers/currency-slice"
+import { Loader } from '../loader/loader'
+import styles from './currencies.module.scss'
 
 
 export const Currencies = () => {
+  const [isLoad, setLoad] = useState(true);
   const {currencies, dateId, currentCurrency, isLoaded} = useAppSelector(state => state.reducer); 
   const [rate, setRate] = useState<CurrenciesList[]>(currencies);
   const dispatch = useAppDispatch();
@@ -37,6 +39,8 @@ export const Currencies = () => {
       } 
       const currenciesRate = getCurrenciesRate()
       setRate(currenciesRate);
+      if(currencies && isLoaded === false) setLoad(false);
+
     }
  
     return () => {
@@ -45,18 +49,20 @@ export const Currencies = () => {
   }, [dispatch, dateId, getCurrenciesRate, currentCurrency])
   return (
     <div className={styles.CurrenciesWrapper}>
-      <table>
-        <tbody>
-          {rate.map((currency: CurrenciesList) => (
-            <tr key={currency.ID}>
-              <td>{currency.CharCode}</td> 
-              <td>{currency.Name}</td>
-              <td>{currency.Value}</td>
-              <td>{currentCurrency}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      {isLoad  ? <Loader/> : 
+        <table>
+          <tbody>
+            {rate.map((currency: CurrenciesList) => (
+              <tr key={currency.ID}>
+                <td>{currency.CharCode}</td> 
+                <td>{currency.Name}</td>
+                <td>{currency.Value}</td>
+                <td>{currentCurrency}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      }
     </div>
   )
 }

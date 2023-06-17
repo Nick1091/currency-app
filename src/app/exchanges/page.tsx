@@ -4,11 +4,11 @@ import { Currencies } from "@/components/currencies/currencies";
 import { CurrencyChoice } from "@/components/currency/currency-choice";
 
 export const metadata: Metadata = {
-  title: 'Monitoring | Currencies App',
-  description: "The Monitoring page of currencies app"
+  title: 'Exchange Rates | Currencies App',
+  description: "The Exchange Rates page of currencies app"
 }
 
-export default function Monitoring() {
+export default function Exchanges() {
   return (
     <div className={styles.monitoring}>
       <Currencies />

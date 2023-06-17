@@ -44,8 +44,8 @@ export const currencySlice = createSlice({
     setDateId: (state, action: PayloadAction<string>) => {
       state.dateId= action.payload;
     },
-    setCurrencies: (state, action: PayloadAction<CurrenciesList[]>) => {
-      state.currencies= action.payload;
+    setIsLoaded: (state, action: PayloadAction<boolean>) => {
+      state.isLoaded = action.payload;
     },
   },
 });
@@ -53,7 +53,6 @@ export const currencySlice = createSlice({
 export const {
   setCurrency, 
   setDateId,
-  setCurrencies
 } = currencySlice.actions;
 
 export default currencySlice.reducer;
