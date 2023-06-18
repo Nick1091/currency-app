@@ -1,5 +1,5 @@
 export const navItems = [
-  { label: 'Monitoring', href: '/'},
+  { label: 'Converter', href: '/'},
   { label: 'Exchange Rates', href: '/exchanges'},
 ]
 export const enNames: {[key: string]: string} = {

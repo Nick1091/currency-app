@@ -1,0 +1,9 @@
+@import "@/styles/styles" ;
+
+.dateWrapper {
+  @include font1;
+  font-size: 24px;
+  color: #fff;
+  display: flex;
+  justify-content: flex-end;
+}
