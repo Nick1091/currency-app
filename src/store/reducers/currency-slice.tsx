@@ -1,8 +1,22 @@
 import { getArrayFromObj } from '@/helper/helper';
-import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction, createAsyncThunk, AsyncThunkPayloadCreator, AsyncThunkOptions } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
+import { AppDispatch, RootState } from '../store';
 
-export const fetchCurrencies = createAsyncThunk('currencies/getAllCurrencies', async (_, thunkAPI) => {
+type AppThunkConfig = {
+  state: RootState;
+  dispatch: AppDispatch;
+}
+
+const createAppThunk = <Returned, ThunkArg = void>(
+  type: string, 
+  payloadCreator: AsyncThunkPayloadCreator<Returned, ThunkArg, AppThunkConfig>,
+  options?: AsyncThunkOptions<ThunkArg, AppThunkConfig>,
+) => {
+  return createAsyncThunk(type, payloadCreator, options) 
+}
+
+export const fetchCurrencies = createAppThunk('currencies/getAllCurrencies', async (_, thunkAPI) => {
   try {
     const response = await axios.get('https://www.cbr-xml-daily.ru/daily_json.js');
     const res = await response.data;
@@ -14,7 +28,7 @@ export const fetchCurrencies = createAsyncThunk('currencies/getAllCurrencies', a
 });
 const initialState: InitState = {
   currentCurrency: 'BYN',
-  isLoaded: false,
+  isLoaded: true,
   currencies: [],
   error: '',
   dateId:''
@@ -55,4 +69,4 @@ export const {
   setDateId,
 } = currencySlice.actions;
 
-export default currencySlice.reducer;
+export const { reducer } = currencySlice;

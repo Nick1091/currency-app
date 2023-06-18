@@ -6,12 +6,10 @@ import { fetchCurrencies, setDateId } from "@/store/reducers/currency-slice";
 import { FormEventHandler, useEffect, useRef, useState } from "react";
 import { SelectLabel, Input, Output, Button } from "../ui";
 import styles from './form.module.scss'
-import Loading from "@/app/loading";
 import { Loader } from "../loader/loader";
 
 export const Form = () => {
 
-  const [isLoad, setLoad] = useState(true);
   const [result, setResult] = useState('');
   const {currencies, dateId, isLoaded} = useAppSelector(state => state.reducer); 
   const dispatch = useAppDispatch();
@@ -24,7 +22,6 @@ export const Form = () => {
         dispatch(fetchCurrencies())
         dispatch(setDateId(dateIdNow))
       } 
-      if(currencies && isLoaded === false) setLoad(false);
     }
     return () => {
       curRef.current = false
@@ -39,7 +36,7 @@ export const Form = () => {
 
   return ( 
     <div>
-      {isLoad  ? <Loader/> : 
+      {isLoaded  ? <Loader/> : 
         (<form onReset={()=>{setResult('')}} 
           onSubmit={ handleSubmit } 
           className={styles.form}

@@ -30,7 +30,6 @@
       position: absolute;
       top: 100%;
       left: 0;
-      max-height: 200px;
       overflow-y: auto;
       background-color: $secBg;
       border-radius: 4px;
@@ -53,18 +52,24 @@
         background: $thumbColorHover;
       }
     }
+    .withHeight{
+      max-height: 200px;
+    }
+    .withoutHeight{
+      max-height: 0px;
+    }
   }
 
   .open {
     &::after {
       transform: translateY(-50%) rotate(180deg);
     }
-    ul{
+    .options{
       animation: slideDown 0.3s ease forwards;
     };
   }
   .closed {
-    ul{
+    .options{
       animation: slideDownReverse 0.3s ease forwards;
     }
   }

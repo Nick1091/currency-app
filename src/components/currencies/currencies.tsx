@@ -9,7 +9,6 @@ import styles from './currencies.module.scss'
 
 
 export const Currencies = () => {
-  const [isLoad, setLoad] = useState(true);
   const {currencies, dateId, currentCurrency, isLoaded} = useAppSelector(state => state.reducer); 
   const [rate, setRate] = useState<CurrenciesList[]>(currencies);
   const dispatch = useAppDispatch();
@@ -39,8 +38,6 @@ export const Currencies = () => {
       } 
       const currenciesRate = getCurrenciesRate()
       setRate(currenciesRate);
-      if(currencies && isLoaded === false) setLoad(false);
-
     }
  
     return () => {
@@ -49,7 +46,7 @@ export const Currencies = () => {
   }, [dispatch, dateId, getCurrenciesRate, currentCurrency])
   return (
     <div className={styles.CurrenciesWrapper}>
-      {isLoad  ? <Loader/> : 
+      {isLoaded  ? <Loader/> : 
         <table>
           <tbody>
             {rate.map((currency: CurrenciesList) => (
