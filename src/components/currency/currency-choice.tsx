@@ -19,25 +19,23 @@ export const CurrencyChoice = () => {
     <div className={styles.selectWrapper}>
       <h4>Select base currency</h4>
       <div
-        className={`${styles.select} ${isOpen ? styles.open : ""}`}
+        className={`${styles.select} ${isOpen ? styles.open : styles.closed}`}
         onClick={() => setIsOpen(!isOpen)}
       >
         <div className={styles.selectedOption}>
           {currentCurrency}
         </div>
-        {isOpen && (
           <ul className={styles.options}>
             {currencies.map((currency: CurrenciesList) => (
               <li
                 key={currency.ID}
-                className={styles.option}
+                className={(currency.CharCode === currentCurrency) ? styles.active : ''}
                 onClick={() => handleSelect(currency.CharCode)}
               >
                 {currency.Name}
               </li>
             ))}
           </ul>
-        )}
       </div>
     </div>
   )

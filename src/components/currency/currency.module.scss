@@ -2,9 +2,9 @@
 
 .selectWrapper {
   max-width: 100%;
+  min-width: 250px;
   .select{
     @include font1;
-    width: 100%;
     background: $secBg;
     margin-top: 20px;
     padding: 8px 16px;
@@ -27,11 +27,9 @@
     }
     .options {
       width: 100%;
-      display: none;
       position: absolute;
       top: 100%;
       left: 0;
-      width: 100%;
       max-height: 200px;
       overflow-y: auto;
       background-color: $secBg;
@@ -47,6 +45,12 @@
         cursor: pointer;
         transition: background-color 0.2s;
         border-bottom: 1px solid $lineColor;
+        &:hover{
+          background: $optionHover;
+        }
+      }
+      .active{
+        background: $thumbColorHover;
       }
     }
   }
@@ -55,8 +59,36 @@
     &::after {
       transform: translateY(-50%) rotate(180deg);
     }
-    .options {
-      display: block;
+    ul{
+      animation: slideDown 0.3s ease forwards;
+    };
+  }
+  .closed {
+    ul{
+      animation: slideDownReverse 0.3s ease forwards;
     }
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDownReverse {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+    height: 0px;
   }
 }
