@@ -14,7 +14,7 @@ export const Form = () => {
   const {currencies, dateId, isLoaded} = useAppSelector(state => state.reducer); 
   const dispatch = useAppDispatch();
   const curRef = useRef(false);
-  
+
   useEffect(() => {
     if(curRef.current === false){
       const dateIdNow = getDateId()
@@ -24,10 +24,10 @@ export const Form = () => {
       } 
     }
     return () => {
-      curRef.current = false
+      curRef.current = true
     }
-  }, [currencies, isLoaded])
-
+  }, [])
+   
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);

@@ -9,6 +9,7 @@ import styles from './currencies.module.scss'
 
 
 export const Currencies = () => {
+
   const {currencies, dateId, currentCurrency, isLoaded} = useAppSelector(state => state.reducer); 
   const [rate, setRate] = useState<CurrenciesList[]>(currencies);
   const dispatch = useAppDispatch();
@@ -18,12 +19,11 @@ export const Currencies = () => {
       return currency.CharCode === currentCurrency
     })
     if(currencyValue) {
-      return currencies.map(currency => {
+      const currenciesRate = currencies.map(currency => {
         const newValue = currency.Value / currency.Nominal / currencyValue.Value;
         return {...currency, Value: +newValue.toFixed(4) };
       })
-    } else {
-      return []
+      setRate(currenciesRate)
     }
   }, [currencies, currentCurrency])
 
@@ -36,14 +36,13 @@ export const Currencies = () => {
         dispatch(fetchCurrencies())
         dispatch(setDateId(dateIdNow))
       } 
-      const currenciesRate = getCurrenciesRate()
-      setRate(currenciesRate);
+      getCurrenciesRate()
     }
  
     return () => {
       curRef.current = false
     }
-  }, [dispatch, dateId, getCurrenciesRate, currentCurrency])
+  }, [getCurrenciesRate])
   return (
     <div className={styles.CurrenciesWrapper}>
       {isLoaded  ? <Loader/> : 
