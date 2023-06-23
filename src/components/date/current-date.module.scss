@@ -1,9 +1,9 @@
-@import "@/styles/styles" ;
+@use "@/styles/styles" ;
 
 .dateWrapper {
-  @include font1;
+  @include styles.fontMain;
   font-size: 24px;
-  color: #fff;
+  color: styles.$txtWhite;
   display: flex;
   justify-content: flex-end;
 }

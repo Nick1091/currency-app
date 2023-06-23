@@ -1,30 +1,30 @@
-@import "@/styles/styles";
+@use "@/styles/styles";
 
 .header{
   height: 120px;
-  background-color: $bg;
-  color: $txtWhite;
+  background-color: styles.$bg;
+  color: styles.$txtWhite;
   display: flex;
   align-items: center;
   width: 100%;
   z-index: 1;
-  box-shadow: $headerShadow;
+  box-shadow: styles.$headerShadow;
   .container{
     width: 100%;
     & > nav {
       display: flex;
       justify-content: flex-end;
-      font-size: $pageLinkSize;
+      font-size: styles.$pageLinkSize;
       font-weight: 400;
       letter-spacing: 0.5px;
       gap: 6em;
     }
-     @include container(1240px)
+     @include styles.container(1240px)
 
   }
 }
 @media (max-width: 1300px) {
   .container{
-    @include container(1024px);
+    @include styles.container(1024px);
   }
 }

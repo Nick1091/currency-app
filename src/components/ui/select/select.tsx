@@ -2,9 +2,10 @@
 
 import { useAppSelector } from "@/hooks/redux";
 import styles from './select.module.scss';
+import { currencySelectors } from "@/store/reducers/currency-slice";
 
 export const SelectLabel = ({name}: {name: string}) => {
-  const {currencies} = useAppSelector(state => state.reducer); 
+  const currencies = useAppSelector(currencySelectors.selectAll); 
 
   return (
     <div className={styles.wrapper}>

@@ -1,14 +1,14 @@
-@import "@/styles/styles" ;
+@use "@/styles/styles" ;
 
 .CurrenciesWrapper{
-  max-height: calc($mainHeight - 50px);
+  max-height: calc(styles.$mainHeight - 50px);
   overflow: auto;
   max-width: 500px;
-  @include font1;
+  @include styles.fontMain;
   table {
     border-collapse: collapse;
     tr:nth-child(2n+1){
-      background-color: $secBg; 
+      background-color: styles.$secBg; 
     }
   }
   th,
@@ -16,5 +16,5 @@
     border: none;
     padding: 8px 15px;
   }
-  @include scroll;
+  @include styles.scroll;
 }

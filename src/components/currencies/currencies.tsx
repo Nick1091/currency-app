@@ -3,14 +3,15 @@
 import { useCallback, useEffect, useRef, useState } from "react"
 import { useAppDispatch, useAppSelector } from "@/hooks/redux"
 import { getDateId } from "@/helper/helper"
-import { fetchCurrencies, setDateId } from "@/store/reducers/currency-slice"
+import { currencySelectors, fetchCurrencies, setDateId } from "@/store/reducers/currency-slice"
 import { Loader } from '../loader/loader'
 import styles from './currencies.module.scss'
 
 
 export const Currencies = () => {
 
-  const {currencies, dateId, currentCurrency, isLoaded} = useAppSelector(state => state.reducer); 
+  const {dateId, currentCurrency, isLoaded} = useAppSelector(state => state.reducer); 
+  const currencies = useAppSelector(currencySelectors.selectAll); 
   const [rate, setRate] = useState<CurrenciesList[]>(currencies);
   const dispatch = useAppDispatch();
 

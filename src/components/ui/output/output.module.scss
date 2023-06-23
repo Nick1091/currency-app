@@ -1,4 +1,4 @@
-@import "@/styles/styles";
+@use "@/styles/styles";
 
 .outputWrapper{
   display: flex;
@@ -12,9 +12,9 @@
     min-width: 200px;
     height: 50px;
     border-radius: 10px;
-    color: $txtGrey;
-    box-shadow: $windowShadow;
-    background: $secBg;
+    color: styles.$txtGrey;
+    box-shadow: styles.$windowShadow;
+    background: styles.$secBg;
     padding: 0px 10px;
     display: flex;
     justify-content: center;

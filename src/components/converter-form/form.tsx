@@ -2,7 +2,7 @@
 
 import { getDateId, getResult } from "@/helper/helper";
 import { useAppDispatch, useAppSelector } from "@/hooks/redux";
-import { fetchCurrencies, setDateId } from "@/store/reducers/currency-slice";
+import { fetchCurrencies, setDateId, currencySelectors } from "@/store/reducers/currency-slice";
 import { FormEventHandler, useEffect, useRef, useState } from "react";
 import { SelectLabel, Input, Output, Button } from "../ui";
 import styles from './form.module.scss'
@@ -11,8 +11,10 @@ import { Loader } from "../loader/loader";
 export const Form = () => {
 
   const [result, setResult] = useState('');
-  const {currencies, dateId, isLoaded} = useAppSelector(state => state.reducer); 
   const dispatch = useAppDispatch();
+  const currencies = useAppSelector(currencySelectors.selectAll); 
+  const initTypeEntity = useAppSelector(state => currencySelectors.selectById(state, 'R01090B')); 
+  const {dateId, isLoaded} = useAppSelector(state => state.reducer); 
   const curRef = useRef(false);
 
   useEffect(() => {
@@ -35,8 +37,8 @@ export const Form = () => {
   };
 
   return ( 
-    <div>
-      {isLoaded  ? <Loader/> : 
+    <>
+      {isLoaded ? <Loader/> : 
         (<form onReset={()=>{setResult('')}} 
           onSubmit={ handleSubmit } 
           className={styles.form}
@@ -53,6 +55,6 @@ export const Form = () => {
           </div>
         </form>)
       }
-    </div>
+    </>
   );
 };

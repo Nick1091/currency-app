@@ -1,17 +1,10 @@
-import { ColorRing } from "react-loader-spinner"
+import styles from './loader.module.scss'
 
 export const Loader = () => {
   return(
-    <div  style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height:'100%', minWidth: '500px'}}>
-      <ColorRing
-        visible={true}
-        height="80"
-        width="80"
-        ariaLabel="blocks-loading"
-        wrapperStyle={{}}
-        wrapperClass="blocks-wrapper"
-        colors={['#c0c0c0', '#c0c0c0', '#c0c0c0', '#c0c0c0', '#c0c0c0']}
-      />
+    <div className={styles.mask}>
+      <div className={styles.loader}>
+      </div>
     </div>
   )
 }

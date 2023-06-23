@@ -1,12 +1,12 @@
-@import "@/styles/styles"; 
+@use "@/styles/styles"; 
 
 .link{
   transition: all 0.1s;
   &:hover{
     text-decoration: underline;
-    color:$hover;
+    color: styles.$hover;
   }
 }
 .active{
-  color:$active;
+  color: styles.$active;
 }

@@ -1,11 +1,12 @@
 'use client'
 import { useAppDispatch, useAppSelector } from "@/hooks/redux"
-import { setCurrency } from "@/store/reducers/currency-slice"
+import { currencySelectors, setCurrency } from "@/store/reducers/currency-slice"
 import styles from './currency.module.scss'
 import { useState } from "react"
 
 export const CurrencyChoice = () => {
-  const {currencies, currentCurrency, isLoaded} = useAppSelector(state => state.reducer); 
+  const currencies = useAppSelector(currencySelectors.selectAll); 
+  const {currentCurrency, isLoaded} = useAppSelector(state => state.reducer); 
 
   const dispatch = useAppDispatch();
   const [isOpen, setIsOpen] = useState(false);

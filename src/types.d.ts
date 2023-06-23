@@ -16,8 +16,7 @@ type CurrenciesList = {
   Value: number,
   Previous: number
 }
-
-type CurrencyWithKey = {[key: string]: CurrenciesList}
+type CurrencyWithKey = { [key: string]: CurrenciesList };
 type InitState = {
   currentCurrency: string,
   isLoaded: boolean,
